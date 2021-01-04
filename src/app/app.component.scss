@@ -1,0 +1,25 @@
+.block {
+    height: 30px;
+    width: 30px;
+    margin: 5px;
+    line-height: 30px;
+    text-align: center;
+    cursor: pointer;
+    background-color: antiquewhite;
+}
+.container {
+    width: 100%;
+    display: flex;
+    top: 50%;
+    left: 50%;
+}
+.bomb {
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    background-color: black;
+    transform: translate(10px, 10px);
+}
+.clicked {
+    background-color: aliceblue; 
+}
