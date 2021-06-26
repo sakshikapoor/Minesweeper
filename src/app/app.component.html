@@ -1,18 +1,33 @@
-<div class="container">
-  <div *ngFor="let row of grid; index as r">
-    <div *ngFor="let col of row; index as c" class="block" (click)="clickBlock(r, c)">
-      <div *ngIf="col.revealed">
-        <div *ngIf="col.hasBomb" class="bomb"></div>
-        <div *ngIf="!col.hasBomb" class="clicked">
-          <ng-container *ngIf="col.value">
-            {{col.value}}
-          </ng-container> &nbsp;
+<div class="heading">Minesweeper</div>
+<div style="margin: 20px;">
+  <img class="numberofbombs" src="../assets/bomb.png" />
+  <span> : {{noOfBombs}}</span>
+</div>
+<div class="game">
+  <div class="container">
+    <div *ngFor="let row of grid; index as r">
+      <div *ngFor="let col of row; index as c" class="block" (click)="clickBlock(r, c)">
+        <div *ngIf="col.revealed" style="display: grid;">
+          <img *ngIf="col.hasBomb" class="bomb" src="../assets/bomb.png" />
+          <div *ngIf="!col.hasBomb" class="clicked">
+            <ng-container *ngIf="col.value">
+              {{col.value}}
+            </ng-container> &nbsp;
+          </div>
         </div>
-      </div>
-    </div><br />
+      </div><br />
+    </div>
+    <br />
+    <div class="message" *ngIf="message.length">{{message}}</div>
   </div>
-  <br />
-  <span>Message : {{message}}</span>
+  <ul class="steps">
+    <h1>Steps</h1>
+    <ng-container *ngFor="let step of steps">
+      <li>{{step}}</li>
+    </ng-container>
+  </ul>
 </div>
 <br />
-<button (click)="initialize()">Reset</button>
+<div class="resetButton">
+  <button (click)="initialize()">Reset</button>
+</div>
